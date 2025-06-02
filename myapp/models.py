@@ -9,12 +9,12 @@ class Employee(models.Model):
     city = models.CharField(max_length=20)
     state = models.CharField(max_length=20)
 
-    # def clean(self):
-    #     if Employee.objects.filter(email=self.email).exclude(id=self.id).exists():
-    #         raise ValidationError("Email must be unique.")
-    #     if Employee.objects.filter(phone=self.phone).exclude(id=self.id).exists():
-    #         raise ValidationError("Phone must be unique.")
+    def clean(self):
+        if Employee.objects.filter(email=self.email).exclude(id=self.id).exists():
+            raise ValidationError("Email must be unique.")
+        if Employee.objects.filter(phone=self.phone).exclude(id=self.id).exists():
+            raise ValidationError("Phone must be unique.")
 
-    # def save(self, *args, **kwargs):
-    #     self.full_clean() 
-    #     super().save(*args, **kwargs)
+    def save(self, *args, **kwargs):
+        self.full_clean() 
+        super().save(*args, **kwargs)
