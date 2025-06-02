@@ -1,0 +1,43 @@
+{% extends "home.html" %}
+{% block title %}
+<title>CRUD | Update</title>
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid w-100 mb-3">
+    <div class="w-75 m-auto mid-section">
+        <h1 class="text-center ">Update Employee Record</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="mb-m">
+                <label for="">Name:</label>
+                <input class="form-control" type="text" name="name" value="{{data.name}}" placeholder="Enter Full Name....">
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="">Email:</label>
+                    <input class="form-control" type="email" value="{{data.email}}" name="email" placeholder="Enter Email...">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="">Phone:</label>
+                    <input class="form-control" type="text" value="{{data.phone}}" name="phone" placeholder="Enter Phone...">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="">City:</label>
+                    <input class="form-control" value="{{data.city}}" type="text" name="city" placeholder="Enter City....">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="">State:</label>
+                    <input class="form-control" type="text" value="{{data.state}}" name="state" placeholder="Enter State....">
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="w-100 btn btn-primary">Update</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
